@@ -1,5 +1,5 @@
 # Autonomous Guided Vehicle (AGV) for Warehouse Logistics & Sorting
-> **Industrial Robotics Project | Embedded Machine Vision & Closed-Loop Actuation**
+> **Collaborative Robotics Project | Hardware Prototyping & System Testing**
 
 [[https://img.shields.io/badge/Controller-Raspberry%20Pi%20Pico%20RP2040-red.svg]](https://www.raspberrypi.com/products/raspberry-pi-pico/)
 [[https://img.shields.io/badge/Vision-Python%20OpenCV-green.svg]](https://opencv.org/)
@@ -7,29 +7,28 @@
 [[https://img.shields.io/badge/License-MIT-yellow.svg]](https://opensource.org/licenses/MIT)
 
 ## 1. Project Overview
-An automated material-handling Automated Guided Vehicle (AGV) engineered for intralogistics distribution centers. The robot autonomously navigates mapped warehouse routes, detects and classifies package tags via machine vision, and executes precise multi-bin sorting routines.
+A collaborative proof-of-concept Automated Guided Vehicle (AGV) developed for intralogistics warehouse package sorting. The platform integrates machine vision tag identification with deterministic motor control to execute automated parcel routing.
 
-## 2. Distributed Control Architecture
-- **High-Level Perception (Host / SBC):**
-  - Real-time video processing pipeline in **Python & OpenCV** using the Raspberry Pi Camera module.
-  - Detects parcel destinations via color segmentation and marker fiducials at speeds up to 1.2 m/s.
-- **Low-Level Deterministic Control (Raspberry Pi Pico RP2040):**
-  - Dual-core ARM Cortex-M0+ running closed-loop velocity PID controllers.
-  - Quadrature encoder feedback decoding (1024 CPR) for dead-reckoning odometry and PWM motor regulation.
+## 2. My Engineering Contributions & Role
+**Role: Mechatronics Assistant & Hardware Testing Contributor**
+- **Mechanical Assembly & Fitment:** Assisted in the physical assembly of the differential drive chassis, bracket alignment, and mounting of the 3D-printed sorting diverter.
+- **Wiring & Power Harnessing:** Supported low-level circuit wiring, motor driver (H-Bridge) interfacing with the Raspberry Pi Pico, and power distribution isolation.
+- **Field Benchmark Testing:** Participated in running systematic sorting validation trials, logging trajectory deviations, and verifying parcel classification consistency across 200 test runs.
 
-## 3. Mechanical Design & Rapid Prototyping
-- **Differential Chassis:** Custom CAD modeled in SolidWorks with drop-down suspension arms for smooth surface contact across floor seams.
-- **Sorting Actuator:** 3D-printed PETG diverter mechanism driven by a high-torque metal servo for rapid parcel ejection into sorting bays.
+## 3. System Architecture (Team Implementation)
+- **High-Level Perception:** Host SBC running Python & OpenCV for parcel tag identification using the Raspberry Pi Camera module.
+- **Low-Level Actuation:** Dual-core Raspberry Pi Pico (RP2040) managing velocity PID loops and quadrature encoder feedback (1024 CPR).
+- **Sorting Mechanism:** Servo-actuated diverter designed to sweep classified parcels into designated sorting zones.
 
 ## 4. Hardware Specifications
 | Subsystem | Components & Specifications |
 | :--- | :--- |
 | **Microcontroller** | Raspberry Pi Pico (RP2040 Dual ARM Cortex-M0+) |
-| **Vision Sensor** | Raspberry Pi Camera Module v2 (720p @ 30fps) |
-| **Drivetrain** | 2x DC Geared Motors with 1024 CPR optical encoders |
-| **Motor Drivers** | High-power dual H-Bridge with thermal cutoff protection |
-| **Power Distribution** | 3S LiPo battery with isolated step-down buck regulators |
+| **Vision Sensor** | Raspberry Pi Camera Module v2 |
+| **Drivetrain** | Dual geared DC motors with optical encoders |
+| **Actuator** | Metal-gear servo mechanical sorting arm |
+| **Power Supply** | 3S LiPo battery with buck converters |
 
-## 5. Performance Benchmarks
-- **Sorting Accuracy:** Achieved **98.4%** successful bin routing across 200 consecutive test cycles.
-- **Path Deviation:** Lateral tracking error maintained within **± 8 mm** along designated corridors.
+## 5. Experimental Results
+- Validated parcel diversion accuracy of **98.4%** across testing batches.
+- Maintained stable corridor line-following with lateral error within **± 8 mm**.
